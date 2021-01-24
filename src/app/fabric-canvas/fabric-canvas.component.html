@@ -2,10 +2,10 @@
 <input type="file" id="file" (change)="selectFile($event)" />
 <!-- <label for="file">Choose file</label> -->
 <p style="font-size: 0.8rem;">Right Click To Confirm Polygon</p>
-<button id="edit">
+<button id="edit" (click)="Edit()" [disabled]="!isPolygonDrawn">
   Edit Polygon
 </button>
-<button id="copy">
+<button id="copy" (click)="copyCoords()" [disabled]="!isPolygonDrawn">
   Copy Coordinates
 </button>
 <br />
