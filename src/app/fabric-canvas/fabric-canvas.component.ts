@@ -23,9 +23,7 @@ export class FabricCanvasComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     //POLYGON INIT
-    this.canvas = new fabric.Canvas('canvas', { fireRightClick: true });
-    // this.myCanvas = this.canvas.lowerCanvasEl;
-    // this.canvas.setMargin(50);
+    this.canvas = new fabric.Canvas('canvasID', { fireRightClick: true });
 
     this.polygon = new fabric.Polygon(this.points, {
       left: 0,
@@ -51,10 +49,11 @@ export class FabricCanvasComponent implements OnInit, AfterViewInit {
 
     this.canvas.on('mouse:down', event => {
       if (event.button === 3) {
-        this.makePolygon();
-        this.isPolygonDrawn = true;
-        if (this.points.length < 3) {
+        if (this.points.length < 4) {
           this.isPolygonDrawn = false;
+        } else {
+          this.makePolygon();
+          this.isPolygonDrawn = true;
         }
       }
     });
@@ -89,9 +88,9 @@ export class FabricCanvasComponent implements OnInit, AfterViewInit {
       };
       this.points.push(this.newPt);
       this.canvas.add(this.polygon);
-      if (this.points.length > 3) {
-        this.isPolygonDrawn = true;
-      }
+      // if (this.points.length > 3) {
+      //   this.isPolygonDrawn = true;
+      // }
     }
   }
 

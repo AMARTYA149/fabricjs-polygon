@@ -1,16 +1,18 @@
-<h2>Create Polygon</h2>
+<h2>Create Editable Polygon on Image</h2>
 <input type="file" id="file" (change)="selectFile($event)" />
 <!-- <label for="file">Choose file</label> -->
 <p style="font-size: 0.8rem;">Right Click To Confirm Polygon</p>
 <button id="edit" (click)="Edit()" [disabled]="!isPolygonDrawn">
   Edit Polygon
 </button>
+<br />
 <button id="copy" (click)="copyCoords()" [disabled]="!isPolygonDrawn">
   Copy Coordinates
 </button>
-<br />
+<hr />
+
 <canvas
-  id="canvas"
+  id="canvasID"
   width="1280"
   height="720"
   style="border: 1px solid red"
